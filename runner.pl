@@ -11,9 +11,15 @@ closedir($D);
 
 foreach my $file ( @list )
 {
-    unless($file =~ '.' || $file =~ '..' ){
-        if ( $file =~ '.torrent' ){
-                `sc $file`; 
+    unless($file eq '\.' || $file eq '\.\.' ){
+             warn $file;
+
+        if ( $file =~ 'torrent' ){
+   
+                `./sc '$d/$file'`; 
            }
+
+
     }
 }
+    
