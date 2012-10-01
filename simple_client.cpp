@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
 if (argc != 2)
 {
-        std::cerr << "usage: ./sc magnet_uri\n"
+        std::cerr << "usage: ./sc torrent_file.torrent\n"
                 "to stop the client, press return.\n";
         return 1;
 }
@@ -31,6 +31,7 @@ if (argc != 2)
 #endif
         {
                 session s;
+                s.set_download_rate_limit( 128000 );
                 s.listen_on(std::make_pair(6881, 6889));
                 add_torrent_params p;
                 p.save_path = "./";
